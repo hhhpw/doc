@@ -124,10 +124,14 @@
         });
       Object.defineProperty(obj, "b", {
         get() {
-
+          // 读取属性时候执行的函数
+          // 默认值为undefined
+          return 20
         },
         set() {
-          
+           // 写入属性时候执行的函数
+          // 默认值为undefined
+          return 30
         }
         });
       console.log(obj.b);
