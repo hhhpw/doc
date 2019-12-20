@@ -158,3 +158,6 @@
         最高级别的不可变性
     
   - Object.isFrozen(obj)
+
+  - Object.prototype.isPrototypeOf(obj)
+    一个对象是否是另一个对象的原型对象
