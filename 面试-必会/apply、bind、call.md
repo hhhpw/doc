@@ -98,7 +98,6 @@
   console.log(newBoundResult, 'newBoundResult'); 
   // original {name: 2} this指向了new bound生成的对象
 ```
-- 实现一
 ```js
 Function.prototype.myBind = function bind(context) {
   if (typeof this !== 'function') {
