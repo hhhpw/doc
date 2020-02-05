@@ -107,6 +107,11 @@
 
         表示两个参数是否相同的布尔值
 
+        基本行为与===相同，但仍然有两个地方不同：
+        1. +0 不等于 -0
+        2. NaN等于自身
+        
+
   - Object.defineProperty(obj, prop, descriptor)
   Object.defineProperty() 方法会直接在一个对象上定义一个新属性，或者修改一个对象的现有属性， 并返回这个对象。
 
