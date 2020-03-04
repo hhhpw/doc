@@ -1,7 +1,7 @@
 # 像素
 ---
 
-### CSS像素
+### CSS像素(逻辑像素（设备独立像素）dip)
 
   css像素等于逻辑像素
 
@@ -53,7 +53,7 @@
 
   - visual viewport
 
-    visual viewport就是显示在屏幕上的网页区域。通过document.innerWidth获取。
+    visual viewport就是显示在屏幕上的网页区域。通过window.innerWidth获取。 代表浏览器可视区域的大小。
  
 
 

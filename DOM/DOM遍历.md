@@ -1,5 +1,6 @@
 ## NodeIterator
 (NodeIterator)[https://developer.mozilla.org/zh-CN/docs/Web/API/NodeIterator]
+4+
 
 ```js
 var nodeIterator = document.createNodeIterator(root, whatToShow, filter);
@@ -46,7 +47,7 @@ NodeIterator.detach()
 **NodeIterator.nextNode()**
 返回下一个 Node , 如果不存在则返回null .
 
-深度优先遍历console tagname
+深度优先遍历
 
 ```js
   let root = document.querySelector("html");

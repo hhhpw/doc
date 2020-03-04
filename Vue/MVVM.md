@@ -46,4 +46,27 @@ MVVM中的View通过使用模板语法来声明式的将数据渲染进DOM，当
 
 - ViewModel
 
+```js
+
+new Vue({
+    el: '#myapp',
+    data: data,
+    methods: {
+        add(v) {
+            if(this.val < 100) {
+                this.val += v;
+            }
+        },
+        sub(v) {
+            if(this.val > 0) {
+                this.val -= v;
+            }
+        }
+    }
+});
+
+```
+当Model发生变化，ViewModel就会自动更新；ViewModel变化，Model也会更新。
+
+
 

@@ -5,7 +5,7 @@
 
 void initCustomEvent(
  in DOMString type, 事件类型
- in boolean canBubble, 表明该事件是否会冒泡.
+ in boolean bubbles, 表明该事件是否会冒泡.
  in boolean cancelable, 表明该事件是否可以被取消.
  in any detail 事件初始化时传递的数据.
 );
@@ -17,7 +17,7 @@ const event = new CustomEvent('eventName', {
    message: 'Hello World',
    time: new Date(),
  },
- bubbles: true,
+ bubbles : true,
  cancelable: true,
 });
 ev.addEventListener('eventName', function (e) {

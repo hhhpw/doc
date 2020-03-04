@@ -17,8 +17,9 @@
 
 - add 
 - remove
-- contains boolean
+- contains => boolean
 - toggle
+
 
 ## 焦点管理(focus)
 
