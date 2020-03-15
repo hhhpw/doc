@@ -1,15 +1,13 @@
 
 ```js
-  let person = {
+ let person = {
     name: "Person",
-    getName: function (param) {
-      console.log("==" + param + "==");
-    }
+    color: "red",
   }
   let student = {
     name: "student",
     getName: function (param) {
-      console.log("==student getName==");
+      console.log("student", this.color);
     }
   };
 ```
@@ -43,7 +41,7 @@
     // 也可使用 '__' + new Date().getTime();
     let symbol = Symbol();
     const cxt = context || window;
-    cxt[symbol] = this; // 这里的this即为调用的函数 person.getName
+    cxt[symbol] = this; // 这里的this即为调用的函数 student.getName
 
     const res = cxt[symbol](...argsArray);
     //  const res = arguments.length > 1 ? cxt[symbol](...argsArray) : cxt[symbol]();
@@ -64,7 +62,7 @@
     }
     let symbol = Symbol();
     const cxt = context || window;
-    cxt[symbol] = this; // 这里的this即为调用的函数 person.getName
+    cxt[symbol] = this; // 这里的this即为调用的函数 student.getName
     const args = Array.from(arguments).slice(1);
     const res = arguments.length > 1 ? cxt[symbol](...args) : cxt[symbol]();
     delete cxt[symbol];
@@ -112,14 +110,18 @@ Function.prototype.myBind = function bind(context) {
       // 通过构造函数 即new关键字, this指向了构造函数实例, 而此时bound已经成为构造函数
       self.apply(this);
     } else {
+      // 普通函数,this 指向绑定的context
       self.apply(context, args.concat(boundArgs));
     }
   }
 
+  // 修改返回函数的 prototype 为绑定函数的 prototype，实例就可以继承函数的原型中的值
+  // bound.prototype = this.prototype;
+  // 不直接绑定的原因在于 修改bound.prototype 也会修改函数的prototype, 
+  // 使用空函数来中专
   var Noop = function () { };
   Noop.prototype = this.prototype;
-  bound = new Noop();
-  // bound.prototype = this.prototype;
+  bound.prototype = new Noop();
   return bound;
 }
 ```

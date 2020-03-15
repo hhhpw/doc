@@ -55,13 +55,13 @@ filename - 定义文档/资源的名称
 
 1. 握手过程
 
-  第一次： client => server  SYN=1,Seq=X
-  第二次： server => client  SYN=1,ACK=X+1,Seq=Y
-  第三次： client => server  ACK=Y+1,Seq=Z
+  第一次： client => server  SYN=1,Seq=X。发送数据到服务端
+  第二次： server => client  SYN=1,ACK=X+1,Seq=Y。传达确认信息。
+  第三次： client => server  ACK=Y+1,Seq=Z。回传信息，代表握手结束。
 
 2. 为啥需要三次握手
 
-谢希仁著《计算机网络》中讲“三次握手”的目的是“为了防止已失效的连接请求报文段突然又传送到了服务端，因而产生错误”。
+**谢希仁著《计算机网络》中讲“三次握手”的目的是“为了防止已失效的连接请求报文段突然又传送到了服务端，因而产生错误”。**
 
 ### 发送HTTP请求
 

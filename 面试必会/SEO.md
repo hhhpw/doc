@@ -19,17 +19,27 @@
 4. 为图片指定宽度、高度，设置alt属性
 5. a标签尽量加上title属性
 6. 集中网站权重。由于蜘蛛分配到每个页面的权重是一定的，这些权重也将平均分配到每个a链接上，那么为了集中网站权重，可以使用”rel=nofollow”属性，它告诉蜘蛛无需抓取目标页,可以将权重分给其他的链接。
+```js
+  nofollow有两种用法：
+  1.用于meta元标签：<meta name="robots" content="nofollow" />，告诉爬虫该页面上所有链接都无需追踪。
+  2.用于a标签：<a href="login.aspx" rel="nofollow">登录</a>,告诉爬虫该页面无需追踪。 
+``` 
 7. 压缩，精减代码。去除无用代码，减少页面体积。
 8. 浏览器缓存
 9. gzip压缩
-
+10. 设置合理的meta标签。
+```html
+<meta name=”description”content=”Everything you need toknow about meta tags forsearch engine optimization”/>
+<meta name=”robots”content=”noindex,nofollow”/>
+```
+11. 设置网站的title
 
 ### SPA SEO遇到的问题
 
 **SEO效果差，因为搜索引擎只认识html里的内容，不认识js渲染生成的内容，搜索引擎不识别，也就不会给一个好排名，会导致单页应用做出来的网页在搜索引擎上的排名差。**
 **专门的技术解决：SSR（Server-Side Rendering）服务端渲染**
 
-简单理解是将组件或页面通过服务器生成html字符串，再发送到浏览器，最后将静态标记"混合"为客户端上完全交互的应用程序
+**简单理解是将组件或页面通过服务器生成html字符串，再发送到浏览器，最后将静态标记"混合"为客户端上完全交互的应用程序**
 
 SSR常用框架
 React 的 Next
