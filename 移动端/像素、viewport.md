@@ -45,7 +45,8 @@
   - layout viewport
 
     layout viewport是网页布局的区域，是html标签的父级容器。
-    **layout viewport用css像素来衡量尺寸，在缩放、调整浏览器窗口的时候不会改变。缩放、调整浏览器窗口改变的只是visual viewport。**
+    **layout viewport用css像素来衡量尺寸，在缩放、调整浏览器窗口的时候不会改变。
+    缩放、调整浏览器窗口改变的只是visual viewport。**
     可以通过document.documentElement.clientWidth获取
     
     iphone8 下是 980
@@ -64,7 +65,9 @@
   - idea viewport (理想尺寸)
 
      ideal viewport并没有一个固定的尺寸，不同的设备拥有有不同的ideal。
-     Layout viewport是为了能将电脑上的网页正确的显示到手机上。当浏览器拿到一个网页时，首先会渲染到这个layout viewport里面。可是现在有很多网页会针对手机做专门的设计，比如现在的一些H5活动页，设计的尺寸就是在手机上看的。此时如果还是把网页渲染到这个大的layout viewport上，实在是有点不合适了。**所以，还应该有个ideal viewport，这个ideal viewport应该与手机屏幕大小的相同，确切来说，等于visual viewport的大小。把页面渲染到这个ideal viewport里面，就能在visual viewport中完美显示。**
+
+---
+  Layout viewport是为了能将电脑上的网页正确的显示到手机上。当浏览器拿到一个网页时，首先会渲染到这个layout viewport里面。可是现在有很多网页会针对手机做专门的设计，比如现在的一些H5活动页，设计的尺寸就是在手机上看的。此时如果还是把网页渲染到这个大的layout viewport上，实在是有点不合适了。**所以，还应该有个ideal viewport，这个ideal viewport应该与手机屏幕大小的相同，确切来说，等于visual viewport的大小。把页面渲染到这个ideal viewport里面，就能在visual viewport中完美显示。**
 
 
 # meta 
@@ -74,7 +77,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0 maximum-scale=1.0, user-scalable=0">
   ```
 
-  width	设置layout viewport  的宽度，为一个正整数，或字符串"width-device"
+width	设置layout viewport  的宽度，为一个正整数，或字符串"width-device"
 initial-scale	设置页面的初始缩放值，为一个数字，可以带小数
 minimum-scale	允许用户的最小缩放值，为一个数字，可以带小数
 maximum-scale	允许用户的最大缩放值，为一个数字，可以带小数
