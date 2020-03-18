@@ -78,7 +78,33 @@
  **bind并没有执行返回结果，而是返回一个函数**，
  结果需要手动执行。
 
-  bind()方法会创建一个新函数，称为绑定函数，当调用这个绑定函数时，绑定函数会以创建它时传入 bind()方法的第一个参数作为 this，传入 bind() 方法的第二个以及以后的参数加上绑定函数运行时本身的参数按照顺序作为原函数的参数来调用原函数。
+
+bind() 函数会创建一个新函数（称为绑定函数），新函数与被调函数（绑定函数的目标函数）具有相同的函数体(不仅仅函数体，原型链也要复制)。
+当新函数被调用时this值绑定到bind()的第一个参数，该参数不能被重写。
+绑定函数被调用时，bind()也接受预设的参数提供给原函数。
+一个绑定函数也能使用new操作符创建对象：这种行为就像把原函数当成构造器。提供的this值被忽略，同时调用时的参数被提供给新函数。
+
+简单来说：
+1、函数foo.getValue调用bind的时候，会返回一个新的函数newGetValue。
+2、newGetValue和foo.getValue函数体是一毛一样的，原型链也要继承。
+3、newGetValue函数被调用时的this是指向对象foo（传给bind的第一个参数）。
+4、bind函数被调用时传递的参数，会在newGetValue被调用时传递，并且排在实参的最前面。
+5、new newGetValue() 时，会把newGetValue当成一个构造函数，this自动被忽略，参数依旧可以传。
+
+```js
+
+var foo = {
+    value:'233',
+    getValue: function() {
+        console.log(this.value);
+        console.log(arguments[0], arguments[1])
+    }
+}
+ 
+var newGetValue = foo.getValue.bind(foo, 1);
+newGetValue(2); // 233 0 1
+
+```
 
 
 ```js
@@ -108,7 +134,7 @@ Function.prototype.myBind = function bind(context) {
     var boundArgs = [].slice.call(arguments);
     if (this instanceof bound) {
       // 通过构造函数 即new关键字, this指向了构造函数实例, 而此时bound已经成为构造函数
-      self.apply(this);
+      self.apply(this, args.concat(boundArgs));
     } else {
       // 普通函数,this 指向绑定的context
       self.apply(context, args.concat(boundArgs));
@@ -128,4 +154,5 @@ Function.prototype.myBind = function bind(context) {
 
 
 [参考文档](https://segmentfault.com/a/1190000017091983)
+[参考文档](https://blog.csdn.net/smallsun_229/article/details/80298147)
 
