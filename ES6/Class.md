@@ -75,12 +75,15 @@ printName(); // TypeError: Cannot read property 'print' of undefined
 
 ### 继承 extends
 
+**父类的static静态方法 子类会被继承**
 
 ```js
 
 class ColorPoint extends Point {
   constructor(x, y, color) {
-    super(x, y); // 调用父类的constructor(x, y)
+    super(x, y); // 调用父类的constructor(x, y)，但里面的this指向子类
+    // 必须在super后才可以使用this关键字，
+    // 因为子类实例的构建基于父类实例，只有super方法才调用父类实例
     this.color = color;
   }
 
@@ -95,3 +98,6 @@ class ColorPoint extends Point {
 
 原因在于**子类自己的this对象，必须先通过父类的构造函数完成塑造，得到与父类同样的实例属性和方法，
 然后在对其进行加工，加上子类的实例属性和方法，如果不调用super方法，子类就得不到this对象**
+
+**ES5 的继承，实质是先创造子类的实例对象this，然后再将父类的方法添加到this上面（Parent.apply(this)）。
+ES6 的继承机制完全不同，实质是先将父类实例对象的属性和方法，加到this上面（所以必须先调用super方法），然后再用子类的构造函数修改this**
