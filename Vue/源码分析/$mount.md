@@ -1,3 +1,5 @@
+数据渲染，挂载到页面上
+
 ```js
 // src/platforms/runtime/index
 
