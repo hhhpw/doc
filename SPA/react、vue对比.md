@@ -21,6 +21,9 @@ ViewModel 通过双向数据绑定把 View 层和 Model 层连接了起来，而
 
 4、vue-cli，create react app。vuex redux。router等
 
+
+
+---
 虚拟DOM
 Virtual DOM可理解是真是DOM所映射的JS对象，改变任何元素都是在VDOM上先操作的，不直接操作真实DOM。VDOM再和真实DOM比较，DIFF算法，有差距更新真实DOM。
 

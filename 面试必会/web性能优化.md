@@ -11,3 +11,6 @@
 - 压缩CSS和JS
 - 设置缓存
 - 图片压缩
+- code-spliting对业务代码瘦身
+- 提供公共代码
+- tree shaking
