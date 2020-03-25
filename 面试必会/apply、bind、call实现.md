@@ -27,7 +27,7 @@
     }
     
     // 3.如果 Type(argArray) 不是 Object, 则抛出一个 TypeError 异常 .
-    if(Object.prototype.toString.call(argsArray) !== '[Object Array]'){
+    if(Object.prototype.toString.call(argsArray) !== '[object Array]'){
         throw new Error('not array');
     }
 

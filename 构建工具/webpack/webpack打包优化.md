@@ -114,3 +114,9 @@ webpack通过webpack.DllPlugin与webpack.DllReferencePlugin两个内嵌插件实
 				]
 			},
 ```
+
+## Happypack
+
+在使用 Webpack 对项目进行构建时，会对大量文件进行解析和处理。当文件数量变多之后，Webpack 构件速度就会变慢。由于运行在 Node.js 之上的 Webpack 是单线程模型的，所以 Webpack 需要处理的任务要一个一个进行操作。
+
+而 Happypack 的作用就是将文件解析任务分解成多个子进程并发执行。子进程处理完任务后再将结果发送给主进程。所以可以大大提升 Webpack 的项目构件速度
