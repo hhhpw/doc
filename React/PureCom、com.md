@@ -4,7 +4,7 @@
 
     PureComponent即纯组件，用于展示组件，
     只需要把继承类从component转化为PureComponent，
-    可以减少DOM不必要的render，提高西能。
+    可以减少DOM不必要的render，提高性能。
 
 
 - 当前问题，默认渲染行为

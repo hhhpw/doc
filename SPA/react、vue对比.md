@@ -24,9 +24,26 @@ ViewModel 通过双向数据绑定把 View 层和 Model 层连接了起来，而
 
 
 ---
-虚拟DOM
+## 虚拟DOM
 Virtual DOM可理解是真是DOM所映射的JS对象，改变任何元素都是在VDOM上先操作的，不直接操作真实DOM。VDOM再和真实DOM比较，DIFF算法，有差距更新真实DOM。
 
 单向数据流：单向数据流是指数据的流向只能由父组件通过props将数据传递给子组件，不能由子组件向父组件传递数据，要想实现数据的双向绑定，只能由子组件接收父组件props传过来的方法去改变父组件的数据，而不是直接将子组件的数据传递给父组件。
 
 
+
+
+## 相同点
+
+1. 都在使用虚拟DOM
+2. 提供响应式和组件化的视图组件
+3. 都有丰富的周边生态(vue-router、react-router、vuex、redux)等
+
+## 不同点
+
+1. 在react中，一切都是js编写的,all in js,使用jsx语法。vue把html、css、js组合到一起，到写到对应的模板里。
+
+2. 构建工具。creat-react-app、vue-cli
+
+3. react单向数据流。vue双向绑定
+
+4. 周围生态。redux、vuex、router的等

@@ -148,6 +148,7 @@ Function.prototype.myBind = function bind(context) {
   var Noop = function () { };
   Noop.prototype = this.prototype;
   bound.prototype = new Noop();
+  // 以上可以使用object.creat(this.prototype)
   return bound;
 }
 ```
