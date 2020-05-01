@@ -4,7 +4,6 @@
 
   决定节点是否可以复用
   建立key-index的索引,主要是替代遍历，提升性能
-  Leeesin/wheels
 
 ## 为什么不用索引作为Key
 
