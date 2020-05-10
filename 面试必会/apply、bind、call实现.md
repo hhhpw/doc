@@ -130,7 +130,6 @@ Function.prototype.myBind = function bind(context) {
   var self = this; // this是调用myBind的函数
   var args = [].slice.call(arguments, 1);
   var bound = function () {
-    console.log("self====", self, "======", this);
     var boundArgs = [].slice.call(arguments);
     if (this instanceof bound) {
       // 通过构造函数 即new关键字, this指向了构造函数实例, 而此时bound已经成为构造函数

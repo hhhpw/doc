@@ -36,6 +36,7 @@
 ***
 
 # viewport
+  [参考文档](https://www.cnblogs.com/2050/p/3877280.html)
   viewport 是用户网页的可视区域。
 
   viewport 翻译为中文可以叫做"视区"。
@@ -64,7 +65,8 @@
 
   - idea viewport (理想尺寸)
 
-     ideal viewport并没有一个固定的尺寸，不同的设备拥有有不同的ideal。
+    ideal viewport并没有一个固定的尺寸，不同的设备拥有有不同的ideal。
+    现在越来越多的网站都会为移动设备进行单独的设计，所以必须还要有一个能完美适配移动设备的viewport。**所谓的完美适配指的是，首先不需要用户缩放和横向滚动条就能正常的查看网站的所有内容；第二，显示的文字的大小是合适，比如一段14px大小的文字，不会因为在一个高密度像素的屏幕里显示得太小而无法看清，理想的情况是这段14px的文字无论是在何种密度屏幕，何种分辨率下，显示出来的大小都是差不多的。当然，不只是文字，其他元素像图片什么的也是这个道理。这个viewport叫做 ideal viewport，也就是第三个viewport——移动设备的理想idea viewport。**
 
 ---
   Layout viewport是为了能将电脑上的网页正确的显示到手机上。当浏览器拿到一个网页时，首先会渲染到这个layout viewport里面。可是现在有很多网页会针对手机做专门的设计，比如现在的一些H5活动页，设计的尺寸就是在手机上看的。此时如果还是把网页渲染到这个大的layout viewport上，实在是有点不合适了。**所以，还应该有个ideal viewport，这个ideal viewport应该与手机屏幕大小的相同，确切来说，等于visual viewport的大小。把页面渲染到这个ideal viewport里面，就能在visual viewport中完美显示。**

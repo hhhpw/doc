@@ -81,3 +81,5 @@ Promise.any()跟Promise.race()方法很像，只有一点不同，**就是不会
 ---
 
   [Promise限制并发数量](https://www.jianshu.com/p/cc706239c7ef)
+
+  [Promise限制并发数量](https://blog.csdn.net/u012515877/article/details/104870757)

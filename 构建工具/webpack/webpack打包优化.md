@@ -13,7 +13,7 @@ npm install webpack-bundle-analyzer --save-dev
   uglifyjs-webpack-plugin 压缩JS
   Happypack 
 
-## externals外部配置扩展
+## externals外部配置扩展(webpakc.providePlugin)
 webpack 中的 externals 配置提供了不从 bundle 中引用依赖的方式。**解决的是，所创建的 bundle 依赖于那些存在于用户环境(consumer environment)中的依赖。**
 怎么理解呢，**意思是如果需要引用一个库，但是又不想让webpack打包（减少打包的时间），并且又不影响我们在程序中以CMD、AMD或者window/global全局等方式进行使用（一般都以import方式引用使用），那就可以通过配置externals。**
 
@@ -33,14 +33,14 @@ externals: {
 
 ## tree-shaking 剔除无用代码
 
-Tree-shaking是依赖ES6模块静态分析的，ES6 module的特点如下：
+**Tree-shaking是依赖ES6模块静态分析的，ES6 module的特点如下：**
 
-**只能作为模块顶层的语句出现**
+**只能作为模块顶层的语句出现**。
 **import 的模块名只能是字符串常量**
 **import binding 是 immutable的**
-**依赖关系确定，与运行时无关，静态分析。正式因为ES6 module的这些特点，才让Tree-shaking更加流行。
+**依赖关系确定，与运行时无关，静态分析。正式因为ES6 module的这些特点，才让Tree-shaking更加流行。**
 
-主要特点还是依赖于ES6的静态分析，在编译时确定模块。如果是require，在运行时确定模块，那么将无法去分析模块是否可用，只有在编译时分析，才不会影响运行时的状态。
+主要特点还是依赖于ES6的静态分析，在编译时确定模块。如果是require，在运行时确定模块，那么将无法去分析模块是否可用，只有在编译时分析，才不会影响运行时的状态
 
 副作用 side-effect
 [副作用](https://segmentfault.com/a/1190000019220154)

@@ -2,6 +2,8 @@
 
   virtual DOM以及DIFF算法
 
+  使得虚拟DOM的Diff算法的复杂度从O(n^3)降到了O(n)。这
+  
   决定节点是否可以复用
   建立key-index的索引,主要是替代遍历，提升性能
 
