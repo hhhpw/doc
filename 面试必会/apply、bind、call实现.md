@@ -127,27 +127,27 @@ Function.prototype.myBind = function bind(context) {
   if (typeof this !== 'function') {
     throw new TypeError(this + 'must be a function');
   }
-  var self = this; // this是调用myBind的函数
+  var that = this; // this即为调用myBind的函数
   var args = [].slice.call(arguments, 1);
   var bound = function () {
     var boundArgs = [].slice.call(arguments);
     if (this instanceof bound) {
       // 通过构造函数 即new关键字, this指向了构造函数实例, 而此时bound已经成为构造函数
-      self.apply(this, args.concat(boundArgs));
+      that.apply(this, args.concat(boundArgs));
     } else {
       // 普通函数,this 指向绑定的context
-      self.apply(context, args.concat(boundArgs));
+      that.apply(context, args.concat(boundArgs));
     }
   }
 
   // 修改返回函数的 prototype 为绑定函数的 prototype，实例就可以继承函数的原型中的值
   // bound.prototype = this.prototype;
   // 不直接绑定的原因在于 修改bound.prototype 也会修改函数的prototype, 
-  // 使用空函数来中专
+  // 因此使用空函数来中转
   var Noop = function () { };
   Noop.prototype = this.prototype;
   bound.prototype = new Noop();
-  // 以上可以使用object.creat(this.prototype)
+  // 以上可以使用Object.creat(this.prototype)
   return bound;
 }
 ```

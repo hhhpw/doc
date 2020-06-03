@@ -41,8 +41,8 @@ allSettledPromise.then(function (results) {
 - Promise.any
 
 Promise.any()方法接受一组 Promise 实例作为参数，包装成一个新的 Promise 实例。
-**只要参数实例有一个变成fulfilled状态，包装实例就会变成fulfilled状态；
-如果所有参数实例都变成rejected状态，包装实例就会变成rejected状态。该方法目前是一个第三阶段的提案 。**
+**只要参数实例有一个变成fulfilled状态，包装实例就会变成fulfilled状态；**
+**如果所有参数实例都变成rejected状态，包装实例就会变成rejected状态。该方法目前是一个第三阶段的提案 。**
 
 Promise.any()跟Promise.race()方法很像，只有一点不同，**就是不会因为某个 Promise 变成rejected状态而结束。**
 
@@ -83,3 +83,40 @@ Promise.any()跟Promise.race()方法很像，只有一点不同，**就是不会
   [Promise限制并发数量](https://www.jianshu.com/p/cc706239c7ef)
 
   [Promise限制并发数量](https://blog.csdn.net/u012515877/article/details/104870757)
+
+  ```js
+
+function fetchImageWithLimit(imageUrls, limit) {
+  // copy一份，作为剩余url的记录
+  let urls =[ ...imageUrls ]
+
+  // 用来记录url - response 的映射
+  // 保证输出列表与输入顺序一致
+  let rs = new Map()
+
+  // 递归的去取url进行请求
+  function run() {
+    if(urls.length > 0) {
+      // 取一个，便少一个
+      const url = urls.shift()
+      // console.log(url, ' [start at] ', ( new Date()).getTime() % 10000)
+      return fetchImage(url).then(res => {
+        // console.log(url, ' [end at] ', ( new Date()).getTime() % 10000)
+        rs.set(url, res);
+        return run();
+      })
+    }
+  }
+
+  // 当imageUrls.length < limit的时候，我们也没有必要去创建多余的Promise
+  const promiseList = Array(Math.min(limit, imageUrls.length))
+    // 这里用Array.protetype.fill做了简写，但不能进一步简写成.fill(run())
+    .fill(Promise.resolve())
+    //  继发，自己去执行
+    .map(promise => promise.then(run));
+    
+  return Promise.all(promiseList).then(() => imageUrls.map(item => rs.get(item)))
+}
+
+
+  ```

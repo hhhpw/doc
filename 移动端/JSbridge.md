@@ -100,3 +100,21 @@ window.bridgeReady = function () {
 
   - 通过iframe方式；
 
+
+
+### 如何实现JSBridge
+(JSBridge端内实现)[https://zhuanlan.zhihu.com/p/32899522]
+
+
+
+
+### 安卓与JS的交互
+
+    对于android调用JS代码的方法有2种： 
+    1. 通过WebView的loadUrl（） 
+    2. 通过WebView的evaluateJavascript（）
+
+    对于JS调用Android代码的方法有3种： 
+    1. 通过WebView的addJavascriptInterface（）进行对象映射 
+    2. 通过 WebViewClient 的shouldOverrideUrlLoading ()方法回调拦截 url 
+    3. 通过 WebChromeClient 的onJsAlert()、onJsConfirm()、onJsPrompt（）方法回调拦截JS对话框alert()、confirm()、prompt（） 消息

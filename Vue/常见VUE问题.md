@@ -1,9 +1,10 @@
 #### 为何只有一个根元素？
 
-1. **new APP 传入一个el选项**
+  1. **new APP 传入一个el选项**
 
   Vue其实并不知道哪一个才是我们的入口，因为对于一个入口来讲，这个入口就是一个‘Vue类’，Vue需要把这个入口里面的所有东西拿来渲染，处理，最后再重新插入到dom中。
   如果同时设置了多个入口，那么vue就不知道哪一个才是这个‘类’。
+
   2. **template里层都需要一个div包裹**
 
   首先看一看template这个标签，这个标签是html5的新标签，有三个特性：
@@ -15,7 +16,7 @@
 
   每一个.Vue的单文件组件本质就是一个vue实例，既然是一个vue实例，它就要有一个入口，如果有多个div，就不无法指定这个vue实例的根入口。
 
-  就像一个HTML文档只能有一个根元素一样，多个根元素必将导致无法构成一颗树，所以解释了 <template></template>只有一个<div>根元素。
+  就像一个HTML文档只能有一个根元素一样，多个根元素必将导致无法构成一颗树，所以解释了\<template>\</template>只有一个\<div>根元素。
 
 
 #### vue生命周期？
@@ -33,12 +34,9 @@
 
   beforeCreate, created, beforeMount, mounted 
 
-
-
-
 #### data为什么是函数？
 
-  因 为组件是可以复用的,JS 里对象是引用关系,如果组件 data 是一个对象,那么子组件中的 data 属性值会互相污染,产生副作用。
+  因为组件是可以复用的,JS 里对象是引用关系,如果组件 data 是一个对象,那么子组件中的 data 属性值会互相污染,产生副作用。
 
   所以一个组件的 data 选项必须是一个函数,因此每个实例可以维护一份被返回对象的独立的拷贝。new Vue 的实例是不会被复用的,因此不存在以上问题。
 
@@ -71,7 +69,14 @@
   2.应用：就是简化tempalte里面{{}}计算和处理props或$emit的传值
   3.具有缓存性，页面重新渲染值不变化,计算属性会立即返回之前的计算结果，而不必再次执行函数
 
-  遍历computed属性，创建wathcer实例，将computed与data混入vm实例，因此这也是computed属性key不能与data key重名的原因。
+  **遍历computed属性，创建wathcer实例，将computed与data混入vm实例，因此这也是computed属性key不能与data key重名的原因。**
+
+  computed 本质是一个惰性求值的观察者。
+  computed 内部实现了一个惰性的 watcher,也就是 computed watcher,computed watcher 不会立刻求值,同时持有一个 dep 实例。
+  其内部通过 this.dirty 属性标记计算属性是否需要重新求值。
+  当 computed 的依赖状态发生改变时,就会通知这个惰性的 watcher,
+  computed watcher 通过 this.dep.subs.length 判断有没有订阅者,
+
 
   依赖收集、动态计算的流程：
   
