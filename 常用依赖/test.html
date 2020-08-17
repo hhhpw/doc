@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+      }
+      html {
+        /* overflow-x: scroll; */
+        /* width: 2000px; */
+      }
+      #a {
+        background-color: red;
+        width: 100px;
+        height: 100px;
+        /* position: relative; */
+        /* border: 10px solid green; */
+        /* padding: 10px; */
+        box-sizing: border-box;
+        overflow-y: scroll;
+      }
+
+      section {
+        position: relative;
+        padding: 20px;
+        border: 5px solid green;
+        top: 50px;
+      }
+    </style>
+  </head>
+  <body>
+    <section>
+      <div id="a">
+        最里面最里面的
+      </div>
+    </section>
+  </body>
+</html>
+
+<script>
+  let p = document.querySelector("#a");
+
+  p.addEventListener("click", () => {
+    console.log(p.offsetTop);
+  });
+</script>
