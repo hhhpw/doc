@@ -122,3 +122,5 @@ reslove的过程就结束了。then方法后面又挂载then记住then2。 微
 1 2 3 4 6 5 7 9 8
 
 ```
+
+[参考资料](https://segmentfault.com/a/1190000018675871)
