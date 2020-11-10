@@ -28,3 +28,10 @@ module.exports = function (source) {
   return s;
 };
 ```
+
+
+编写Loader时要遵循单一原则，每个Loader只做一种"转义"工作。
+每个Loader的拿到的是源文件内容（source），可以通过返回值的方式将处理后的内容输出，
+也可以调用this.callback()方法，将内容返回给webpack。
+还可以通过 this.async()生成一个callback函数，再用这个callback将处理后的内容输出出去。 
+此外webpack还为开发者准备了开发loader的工具函数集——loader-utils。

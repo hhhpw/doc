@@ -23,7 +23,7 @@
 
 ## offsetWidth
 
-offsetWidth = border-left-width + padding-left + width + padding-right + border-right-width;
+offsetWidth = width + 左右 padding + 左右 border
 
 ## offsetHeight
 
