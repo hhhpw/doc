@@ -192,9 +192,60 @@ let d = {
     };
   }
 };
+
+
+```
+
+```js
+// 剪头函数的this无法被修改
+function foo() {
+    // 返回一个箭头函数
+    return (a) => {
+        // this继承自foo()
+        console.log( this.a );
+    };
+}
+
+var obj1 = {
+    a: 2
+};
+
+var obj2 = {
+    a: 3
+}
+
+var bar = foo.call( obj1 );
+bar.call( obj2 ); // 2，不是3！
 ```
 
 ## 绑定例外
 
 1、null 或 undefined 作为参数传入 call、apply 等,这些值在调用时候会被忽略，实际应用的是默认绑定规则。
 针对以上，更安全的应用是利用 Object.create(null)
+
+
+```js
+
+var num = 1;
+var myObject = {
+    num: 2,
+    add: function() {
+        this.num = 3;
+        (function() {
+            console.log(this.num);
+            this.num = 4;
+        })();
+        console.log(this.num);
+    },
+    sub: function() {
+        console.log(this.num)
+    }
+}
+myObject.add();
+console.log(myObject.num);
+console.log(num);
+var sub = myObject.sub;
+sub();
+// 1 3 3 4 4
+
+```

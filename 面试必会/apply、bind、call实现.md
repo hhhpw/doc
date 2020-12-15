@@ -148,5 +148,10 @@ Function.prototype.myBind = function bind(context) {
 };
 ```
 
+---
+
+### 注意
+使用null、undefined作为this的绑定对象传入call、apply、bind，这些值在调用时候会被忽略，实际应用的是默认规定。
+
 [参考文档](https://segmentfault.com/a/1190000017091983)
 [参考文档](https://blog.csdn.net/smallsun_229/article/details/80298147)
