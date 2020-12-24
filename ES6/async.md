@@ -152,51 +152,57 @@ async function logInOrder(urls) {
 // 一个例子
   let arr = [5, 1, 3, 4, 2];
 
-  function c(d, i) {
-    console.log("wrap----", i + 1);
-    return new Promise((reslove) => {
-      setTimeout(() => {
-        console.log("dd--", d, "ii---", i + 1);
-        reslove(d * 10);
-      }, d * 1000);
-    })
+function c(d, i) {
+  console.log("B", i + 1);
+  return new Promise((reslove) => {
+    setTimeout(() => {
+      console.log("item:", d, "i:", i + 1);
+      reslove(d * 10);
+    }, d * 1000);
+  })
+}
+
+async function g(arr) {
+  const arr1 = arr.map(async (d, i) => {
+    console.log("A", i + 1);
+    let res = await c(d, i);
+    console.log("res", res)
+    return res;
+  });
+  console.log("C")
+  console.log("arr1", arr1);
+  for (let gc of arr1) {
+    console.log("gc", gc, await gc);
   }
+}
 
-  async function g(arr) {
-    const arr1 = arr.map(async (d, i) => {
-      console.log("i----------", i + 1);
-      let res = await c(d, i);
-      return res;
-    });
+g(arr);
 
-    console.log("arr1", arr1);
-    for (let gc of arr1) {
-      console.log("gc", await gc);
-    }
-  }
-
-  g(arr);
-
-// 整个打印顺序
-// i---------- 1
-//  wrap---- 1
-//  i---------- 2
-// wrap---- 2
-// i---------- 3
-// wrap---- 3
-// i---------- 4
-//  wrap---- 4
-//  i---------- 5
-// wrap---- 5
-// arr1 (5) [Promise, Promise, Promise, Promise, Promise]
-//  ddddd 1 iiiii 2
-// ddddd 2 iiiii 5
-// ddddd 3 iiiii 3
-//  ddddd 4 iiiii 4
-//  ddddd 5 iiiii 1
-//  gc 50
-//  gc 10
-//  gc 30
-//  gc 40
-//  gc 20
+// A 1
+// 47 B 1
+// 58 A 2
+// 47 B 2
+// 58 A 3
+// 47 B 3
+// 58 A 4
+// 47 B 4
+// 58 A 5
+// 47 B 5
+// 63 C
+// 64 arr1 (5) [Promise, Promise, Promise, Promise, Promise]
+// 50 item: 1 i: 2
+// 60 res 10
+// 50 item: 2 i: 5
+// 60 res 20
+// 50 item: 3 i: 3
+// 60 res 30
+// 50 item: 4 i: 4
+// 60 res 40
+// 50 item: 5 i: 1
+// 60 res 50
+// 66 gc Promise {<fulfilled>: 50} 50
+// 66 gc Promise {<fulfilled>: 10} 10
+// 66 gc Promise {<fulfilled>: 30} 30
+// 66 gc Promise {<fulfilled>: 40} 40
+66 gc Promise {<fulfilled>: 20} 20
 ```

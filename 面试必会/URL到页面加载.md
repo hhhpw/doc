@@ -69,12 +69,14 @@
 ## 监听加载完成
 
 ```js
-window.DOMContentLoaded = function () {
-  alert("页面加载完成！");
-};
-window.onload = function () {
-  alert("页面加载完成！");
-};
+document.addEventListener('DOMContentLoaded', function () {
+  console.log("A")
+    // DOM 渲染完即可执行，此时图片、视频还可能没有加载完
+})
+window.addEventListener('load', function () {
+  console.log("B")
+    // 页面的全部资源加载完才会执行，包括图片、视频等
+})
 ```
 
 ## 优化建议

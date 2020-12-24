@@ -19,7 +19,8 @@ Element.scrollTo()
 ```
 ## scrollIntoView
 
-[Options](https://blog.csdn.net/THINK_OF_/article/details/85338033)
+element.scrollIntoView()
+[Options](https://developer.mozilla.org/de/docs/Web/API/Element/scrollIntoView)
 
 
 ```ts
