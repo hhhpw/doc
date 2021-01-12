@@ -52,8 +52,10 @@ Object.observe
 
 我们只需记住当当前执行栈执行完毕时会立刻先处理所有微任务队列中的事件，然后再去宏任务队列中取出一个事件。同一次事件循环中，微任务永远在宏任务之前执行。
 
+---
 ```js
 async await 遇到await时，会先将await后的函数执行一遍，然后将await后面的代码加入micro队列中。
+
 async function async1() {
     console.log('async1 start');// 同步。立即执行
     await async2(); // 同步。会执行
@@ -62,24 +64,34 @@ async function async1() {
 async function async2() {
     console.log('async2');
 }
+async1()
 
-async1 start => async2 => async1 end
 
-====
+console.log("script start")
+
 
 setTimeout(function(){
-    console.log('1')
+    console.log('setTimeout')
 });
 
 new Promise(function(resolve){
-    console.log('2'); // promise实例建立后立即执行
+    console.log('Promise start'); // promise实例建立后立即执行
     resolve();
 }).then(function(){
-    console.log('3')
+    console.log('promise end')
 });
 
-console.log('4');
-// 2 4 3 1
+console.log('script end');
+
+
+// async1 start
+// async2
+// script start
+//  Promise start
+// script end
+// async1 end
+// promise end
+// setTimeout
 
 ```
 
