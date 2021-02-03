@@ -102,8 +102,35 @@ window.bridgeReady = function () {
 
 
 
+### JSBridge的开发，需要哪些知识储备
+
+
+- scheme协议是什么
+  可以简单理解为自定义的url
+形式如：[scheme:][//domain][path][?query][#fragment]
+举个栗子：jsbridge://openPage?url=https%3A%2F%2Fwww.baidu.com
+- js调用native的方法
+native通过拦截约定好的scheme协议 去执行一些native的方法
+约定固定格式的scheme协议，例如：[customscheme:][//methodName][?params={data, callback}]
+customscheme：自定义需要拦截的scheme
+methodName：需要调用的native的方法
+params：传递给native的参数 和 回调函数名
+通过在webview中挂载到全局对象上的对象方法来调用native的方法
+举个栗子：window.JSBridge.openPage("https://www.baidu.com")
+- native注入到webview全局对象为JSBridge，通过全局对象JSBridge 可以调用挂载在其上的方法，来触发调用native的方法
+- native还会拦截 js调用的alert、confirm、prompt方法，通过在js里使用这三个方法 也能进行js对native的通信
+
 ### 如何实现JSBridge
 (JSBridge端内实现)[https://zhuanlan.zhihu.com/p/32899522]
+
+  1. 功能
+
+      通用功能：app唤起，关闭webview，自定义titlebar，打开一个新的webview承接跳转url，下拉刷新等
+      业务功能：微信、微博分享，支付，调用相机、图片上传等、定位信息
+
+  2.  两端的规范和统一。统一的对调码表
+
+  3.  桥协议的实现。 端调用js，js调用端。解析、调用、回调。
 
 
 

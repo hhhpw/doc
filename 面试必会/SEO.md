@@ -33,6 +33,7 @@
 <meta name=”robots”content=”noindex,nofollow”/>
 ```
 11. 设置网站的title
+12. 少用iframe
 
 ### SPA SEO遇到的问题
 
