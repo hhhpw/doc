@@ -1,4 +1,4 @@
-![示意图](https://github.com/death-hpw/my-images/blob/master/20191106142711.png)
+![示意图](../images/20191106142711.png)
 
 **DOM 解析和 CSS 解析是两个并行的进程**，这也是为什么 CSS 加载不会影响 DOM 解析的原因。
 **RENDER TREE 依赖于 DOM TREE 和 CSS RULE TREE**，因此，页面的渲染要等 CSS RULE TREE（即使外部 CSS 依赖加载失败,也需等待）和 DOM TREE 解析完成, 从而 CSS 加载影响 DOM 的渲染。
