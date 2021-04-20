@@ -18,3 +18,10 @@ link 方式的样式权重高于@import 的权重。
 
 5.权重区别(该项有争议，下文将详解)
 link 引入的样式权重大于@import 引入的样式。
+
+
+  ```css
+<style type=”text/css”>
+    @import url（“a.css”）；
+</style>
+  ```

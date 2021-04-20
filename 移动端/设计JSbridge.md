@@ -46,3 +46,6 @@ navigator.userAgent 做平台区分
 优点：只需要提供几个统一的方法，便能包含各种操作，比如控制设备（controlDevice），获取设备状态（getDevice）、定时（timming）等。
 缺点：设计困难，可能还会牵扯到后台。
 
+
+
+[如何设计](https://www.jianshu.com/p/722a51ee4d55?utm_campaign=maleskine&utm_content=note&utm_medium=seo_notes&utm_source=recommendation)
