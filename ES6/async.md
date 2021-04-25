@@ -17,6 +17,18 @@
   ## await
   
   **正常情况下await后面命名是一个promise对象，返回对象的结果。如果不是Promise对象，就直接返回对应的值。**
+
+  ```js
+
+async function f() {
+  // 等同于
+  // return 123;
+  return await 123;
+}
+
+f().then(v => console.log(v))
+// 123
+  ```
   
   **如果该promise对象为reject状态，会被catch捕获，且整个async函数都会被中断执行**
 

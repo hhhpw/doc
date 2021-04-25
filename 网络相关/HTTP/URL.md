@@ -5,7 +5,7 @@
 
 - URL. Unisversal Resource Locator 统一资源定位符
 
-- URN. Universal Resource Resource 统一资源名称
+- URN. Universal Resource Name 统一资源名称
 
 
 **URL和URN都是URI的子集**
