@@ -1,7 +1,7 @@
 
 
 
-![POST](../images/post.jpeg)
+![POST](../../images/post.jpeg)
 ### GET 和 POST 请求区别
 
 
