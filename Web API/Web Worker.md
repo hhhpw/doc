@@ -26,3 +26,13 @@ Worker 线程不能执行alert()方法和confirm()方法，但可以使用 XMLHt
 
 Worker 线程无法读取本地文件，即不能打开本机的文件系统（file://），它所加载的脚本，必须来自网络。
 
+
+var arr2 = [
+  { name: '梅西', qq: 10 },
+  { name: 'C 罗', qq: 7 },
+  { name: '内马尔', qq: 11 },
+  [
+    { name: 'C 罗', qq: 7 },
+    {age:19, sex: "xx"}
+  ]
+]
