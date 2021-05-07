@@ -1,4 +1,4 @@
-![url](../images/url.png)
+![url](../../images/url.png)
 
 
 - URI. Unisversal Resource Identifier 统一资源标志符

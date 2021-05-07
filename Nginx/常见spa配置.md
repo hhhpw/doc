@@ -11,7 +11,7 @@ location ~* ^/music/.*\.(js|css|gif|jpg|jpeg|png)$ {
   root /home/work/output/dev
   access_log off
   expires 1d
-  # gzpi压缩
+  # gzip压缩
   gzip on;
   gzip_comp_level 3;
   gzip_types text/plain application/javascript text/css application/xml text/javascript application/x-httpd-php image/jpeg
