@@ -35,8 +35,8 @@ type 被触发的事件类型
 
 - currentTarget 和 target 的区别
 
-currentTarget 是事件的绑定目标，this 都会只向它
-target 是事件触发的目标
+**currentTarget 是事件的绑定元素，this 都会只向它**
+**target 是事件触发的元素**
 
 ```html
 <body>
@@ -73,5 +73,5 @@ target 是事件触发的目标
 ```
 
 点击最里层的 D，
-**以上，无论是冒泡还是在捕获阶段，target 始终是 D, 而 currentTarget 则不同。
+**以上，无论是冒泡还是在捕获阶段，target 始终是 D, 而 currentTarget 则为 dcba.
 在事件处理程序中，this 始终指向 currentTarget。**
