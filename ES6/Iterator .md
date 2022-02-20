@@ -47,7 +47,7 @@ function makeIterator(array) {
       return nextIndex < array.length
         ? { value: array[nextIndex++], done: false }
         : { value: undefined, done: true };
-    }
+    },
   };
 }
 ```
@@ -58,7 +58,7 @@ function makeIterator(array) {
 let obj = {
   name: "leo",
   age: 12,
-  sex: "boy"
+  sex: "boy",
 };
 
 obj[Symbol.iterator] = function () {
@@ -69,10 +69,10 @@ obj[Symbol.iterator] = function () {
       return nextIndex < keyArr.length
         ? {
             value: obj[keyArr[nextIndex++]],
-            done: false
+            done: false,
           }
         : { value: undefined, done: true };
-    }
+    },
   };
 };
 for (let value of obj) {

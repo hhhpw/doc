@@ -1,4 +1,4 @@
-## SSE
+## SSE(Event Source)
 
 [MDN](https://developer.mozilla.org/zh-CN/docs/Server-sent_events/EventSource)
 SSE（Server-Sent Event，服务端推送事件）是一种允许服务端向客户端推送新数据的 HTML5 技术。
