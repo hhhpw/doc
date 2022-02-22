@@ -80,3 +80,61 @@ watch 特性 1.是观察的动作， 2.应用：监听 props，\$emit 或本组�
 #### 如何检测 data 中数组的变化
 
 重写数组原型链方法，指向自定义的数组原型方法，当调用数组 api 时，就可以通知依赖更新。如果数组中有引用类型，会对数组中的应用类型再次检测。（遍历数组中的每一项，对元素调用 observe 方法，进行深度观测）
+
+#### .vue 如何转化为.js 模块
+
+主要是由于 vue-loader。它会将 template、js、css 分成不同的模块。如
+
+```js
+var MODULE_0__ = __webpack_require__(
+  "./test.vue?vue&type=template&id=13429420&scoped=true&"
+);
+var MODULE_1__ = __webpack_require__("./test.vue?vue&type=script&lang=js&");
+var MODULE_2__ = __webpack_require__(
+  "./test.vue?vue&type=style&index=0&id=13429420&scoped=true&lang=scss&"
+);
+var MODULE_3__ = __webpack_require__(
+  "./lib/vue-loader/runtime/componentNormalizer.js"
+);
+```
+
+在得到上述的 request 之后，webpack 会先使用 vue-loader 处理，然后再使用 template-loader 来处理，然后得到最后模块。
+首先，通过 compile 编译器把 template 编译成 AST 语法树（abstract syntax tree 即 源代码的抽象语法结构的树状表现形式），compile 是 createCompiler 的返回值，createCompiler 是用以创建编译器的。另外 compile 还负责合并 option。
+然后，AST 会经过 generate（将 AST 语法树转化成 render funtion 字符串的过程）得到 render 函数，render 的返回值是 VNode，VNode 是 Vue 的虚拟 DOM 节点，里面有（标签名、子节点、文本等等）
+
+#### modal 组件的封装
+
+[参考资料](https://segmentfault.com/a/1190000038928664)
+主要使用 h 函数渲染。
+
+#### 错误捕获
+
+- 后端接口类型的（axios,interceptor 进行网络层面的接口请求）
+
+```js
+apiClient.interceptors.response.use(
+  (response) => {
+    return response;
+  },
+  (error) => {
+    if (error.response.status == 401) {
+      router.push({ name: "Login" });
+    } else {
+      message.error("出错了");
+      return Promise.reject(error);
+    }
+  }
+);
+```
+
+- 代码逻辑问题
+
+```js
+Vue.config.errorHandler = function (err, vm, info) {
+  // handle error
+  // `info` 是 Vue 特定的错误信息，比如错误所在的生命周期钩子
+  // 只在 2.2.0+ 可用
+};
+// 3
+app.config.errorHandler = function (err, vm, info) {};
+```

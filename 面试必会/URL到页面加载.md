@@ -1,4 +1,4 @@
-![示意图](../images/20191106142711.png)
+![示意图](../images/render.png)
 
 **DOM 解析和 CSS 解析是两个并行的进程**，这也是为什么 CSS 加载不会影响 DOM 解析的原因。
 **RENDER TREE 依赖于 DOM TREE 和 CSS RULE TREE**，因此，页面的渲染要等 CSS RULE TREE（即使外部 CSS 依赖加载失败,也需等待）和 DOM TREE 解析完成, 从而 CSS 加载影响 DOM 的渲染。
@@ -69,14 +69,14 @@
 ## 监听加载完成
 
 ```js
-document.addEventListener('DOMContentLoaded', function () {
-  console.log("A")
-    // DOM 渲染完即可执行，此时图片、视频还可能没有加载完
-})
-window.addEventListener('load', function () {
-  console.log("B")
-    // 页面的全部资源加载完才会执行，包括图片、视频等
-})
+document.addEventListener("DOMContentLoaded", function () {
+  console.log("A");
+  // DOM 渲染完即可执行，此时图片、视频还可能没有加载完
+});
+window.addEventListener("load", function () {
+  console.log("B");
+  // 页面的全部资源加载完才会执行，包括图片、视频等
+});
 ```
 
 ## 优化建议
