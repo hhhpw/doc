@@ -27,6 +27,16 @@ preventDefault() 取消事件的默认行为，如果 cancelable 是 true，则�
 stopImmdiatePropagation() 取消事件的冒泡，如果 bubbles 为 true，则可以使用
 stopPropagation() 取消事件的冒泡，如果 bubbles 为 true，则可以使用
 
+#### stopImmediatePropagation 方法
+
+event.stopImmediatePropagation();
+阻止事件冒泡并且阻止该元素上同事件类型的监听器被触发。例如：
+
+#### stopPropagation
+
+stopPropagation
+event.stopPropagation();阻止事件冒泡
+
 IE
 cancelBubble 默认为 false，ture 则取消事件冒泡
 returnValue 默认为 true，false 则取消事件的默认行为
