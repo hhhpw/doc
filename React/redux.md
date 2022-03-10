@@ -16,3 +16,7 @@ action，store，reducer，工作流程是 view 调用 store 的 dispatch 接收
 ## redux 有什么缺点
 一个组件所需要的数据，必须由父组件传过来，而不能像 flux 中直接从 store 取。
 当一个组件相关数据更新时，即使父组件不需要用到这个组件，父组件还是会重新 render，可能会有效率影响，或者需要写复杂的 shouldComponentUpdate 进行判断。
+
+AB  AD AC
+BD BC 
+DC

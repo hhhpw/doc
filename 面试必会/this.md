@@ -243,4 +243,27 @@ console.log(num);
 var sub = myObject.sub;
 sub();
 // 1 3 3 4 4
+
+//
+
+var inner = "windows";
+function say() {
+  console.log(inner);
+  console.log(this.inner);
+}
+var obj = (function () {
+  var inner = "inner-1";
+  return {
+    inner: "inner-2",
+    say: function () {
+      console.log(inner);
+      console.log(this.inner);
+    },
+  };
+})();
+// say();
+// obj.say();
+
+//obj.say = say;
+//obj.say();
 ```

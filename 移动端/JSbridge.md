@@ -141,6 +141,7 @@ iframe 并不是唯一的方法
     对于android调用JS代码的方法有2种：
     1. 通过WebView的loadUrl（）
     2. 通过WebView的evaluateJavascript（）
+    3. Android端通过shouldOverrideUrlLoading 拦截URL Schema
 
     对于JS调用Android代码的方法有3种：
     1. 通过WebView的addJavascriptInterface（）进行对象映射

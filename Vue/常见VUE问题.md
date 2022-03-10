@@ -138,3 +138,17 @@ Vue.config.errorHandler = function (err, vm, info) {
 // 3
 app.config.errorHandler = function (err, vm, info) {};
 ```
+
+### 渲染过程
+
+1 解析 template 为 render 函数(或在开发环境已经完成，vue-loader。正常单页 webpack 打包通过 vue-loader，就已经变成了 render 函数)
+2 触发响应式，observe 的过程。
+3 执行 render 函数，生成 vnode，patch(elem,vnode)
+
+### 更新过程
+
+修改 data，触发 setter
+重新执行 render 函数，生成 newVnode
+patch(VNode,newVVode)
+
+###
