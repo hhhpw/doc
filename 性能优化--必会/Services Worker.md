@@ -1,8 +1,8 @@
 ## workbox
 
-https://blog.csdn.net/jiezaizone/article/details/105815491
+[参考文档](https://blog.csdn.net/jiezaizone/article/details/105815491)
 
-https://blog.csdn.net/yelin042/article/details/79837745?utm_medium=distribute.pc_relevant.none-task-blog-2~default~baidujs_baidulandingword~default-0.pc_relevant_paycolumn_v3&spm=1001.2101.3001.4242.1&utm_relevant_index=3
+[参考文档](https://blog.csdn.net/yelin042/article/details/79837745?utm_medium=distribute.pc_relevant.none-task-blog-2~default~baidujs_baidulandingword~default-0.pc_relevant_paycolumn_v3&spm=1001.2101.3001.4242.1&utm_relevant_index=3)
 
 
 - workbox.skipWaiting()
@@ -24,9 +24,9 @@ https://blog.csdn.net/yelin042/article/details/79837745?utm_medium=distribute.pc
         new workbox.strategies.NetworkFirst()
     );
 
-       workbox.routing.registerRoute(
+  workbox.routing.registerRoute(
      new RegExp('\\.js$'),
-     jsHandler
+     jsHandler // 
    );
    
    workbox.routing.registerRoute(
@@ -43,7 +43,7 @@ https://blog.csdn.net/yelin042/article/details/79837745?utm_medium=distribute.pc
 
 - workbox.routing
 
-serveice workder可以拦截网页的网络请求，它可以把从网络请求中缓存的或者在serveic worker众请求获取的内容返回给浏览器，
+serveice worker可以拦截网页的网络请求，它可以把从网络请求中缓存的或者在serveic worker众请求获取的内容返回给浏览器，
 也就是说浏览器不会再直接与服务器交互，而是由service worker代理。
 Workerbox.routing是一个模块，可以容易地将这些请求“路由”映射到不同的响应，并提供设置相应策略的方法。
 

@@ -11,6 +11,8 @@
 [报错解决](https://stackoverflow.com/questions/49566059/service-worker-registration-error-unsupported-mime-type-text-html)
 
 
+[参考文档](https://lavas-project.github.io/pwa-book/chapter04/3-service-worker-dive.html)
+
 ## chrome devtool
 chrome://serviceworker-internals/
 
