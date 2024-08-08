@@ -33,3 +33,12 @@ rewrite ^.*$ /music/index.html last; # 接到截取的uri 并按一定规则重�
 
 
 ```
+
+### nextjs [id].html路由配置
+
+```js
+location ~* /pool/([0-9]+)?  {
+        root html;
+        rewrite ^/pool/(.*)$ /pool/[id].html break;
+    }
+```
