@@ -61,3 +61,5 @@ $theme-map: null;
   background-color: theme-get('text-50');
 }
 ```
+
+@mixin、@function去配合。

@@ -21,10 +21,7 @@ Virtual DOM可理解是真是DOM所映射的JS对象，改变任何元素都是�
 
 ## 不同点
 
-1. 在react中，一切都是js编写的,all in js,使用jsx语法。vue把html、css、js组合到一起，到写到对应的模板里。
-
+1. 在react中，一切都是js编写的,all in js,使用jsx语法。vue把html、css、js组合到一起，到写到对应的模板里
 2. 构建工具。creat-react-app、vue-cli
-
 3. react单向数据流。vue双向绑定
-
 4. 周围生态。redux、vuex、router的等

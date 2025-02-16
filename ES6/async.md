@@ -1,5 +1,9 @@
   # Async
 
+ Generator 函数的语法糖。内部自带执行器。
+- 自带执行器
+- 更好的语义
+- 返回值是promise
     
   ## async返回Promise对象
   ```js
@@ -18,8 +22,7 @@
   
   **正常情况下await后面命名是一个promise对象，返回对象的结果。如果不是Promise对象，就直接返回对应的值。**
 
-  ```js
-
+```js
 async function f() {
   // 等同于
   // return 123;
@@ -216,5 +219,5 @@ g(arr);
 // 66 gc Promise {<fulfilled>: 10} 10
 // 66 gc Promise {<fulfilled>: 30} 30
 // 66 gc Promise {<fulfilled>: 40} 40
-66 gc Promise {<fulfilled>: 20} 20
+// 66 gc Promise {<fulfilled>: 20} 20
 ```
